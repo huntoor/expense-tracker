@@ -38,6 +38,14 @@ public class UserService {
         return usersRepository.save(new Users(user.getUsername(), user.getPassword(), user.getEmail()));
     }
 
+     // Sign In
+     public Optional<Users> signIn(String username, String password) {
+        // Add logic to authenticate the user (e.g., check against the database)
+
+        Optional<Users> user = usersRepository.findByUsernameAndPassword(username, password);
+        return user;
+    }
+
     // Update an existing user by ID
     public Optional<Users> updateUser(Integer id, Users user) {
         Optional<Users> usersData = usersRepository.findById(id);

@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
+import './signin.css';
+
 
 const Signin = ({ onSignin }) => {
   const [username, setUsername] = useState('');
@@ -6,18 +11,18 @@ const Signin = ({ onSignin }) => {
 
   const handleSignin = async () => {
     try {
-      const response = await fetch('YOUR_API_ENDPOINT/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
+      const response = await axios.post('http://localhost:8080/api/signin', {
+        username,
+        password,
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('authToken', data.token);
-        onSignin(); // Notify the parent component (App.js) about the successful signin
+      if (response.status === 200) {
+        console.log("Singin successful");
+        const data = response.data;
+        console.log(data);
+        localStorage.setItem('authToken', data.id);
+        localStorage.setItem('username', data.username);
+        // onSignin(); // Notify the parent component (App.js) about the successful signin
       } else {
         console.error('Signin failed');
         // Handle error cases
@@ -28,15 +33,40 @@ const Signin = ({ onSignin }) => {
   };
 
   return (
-    <div>
-      <h2>Signin</h2>
-      <form>
-        {/* ... (your form inputs) */}
-        <button type="button" onClick={handleSignin}>
-          Signin
-        </button>
-      </form>
-    </div>
+    <>
+      <div className="loginWrapper">
+        <h2>Sign in with us</h2>
+        <form>
+          <div>
+            <label>Username</label>
+            <br />
+            <input type="text"
+              name="username"
+              onChange={(e) => setUsername(e.target.value)}
+              required />
+          </div>
+
+          <div>
+            <label>Password</label>
+            <br />
+            <input type="password"
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              required />
+          </div>
+
+          <div>
+            <button id="sub_btn" type="button" onClick={handleSignin}>Login</button>
+          </div>
+
+        </form>
+
+        <footer>
+          <p>First time? <Link to="/signUp">Create an account</Link>.</p>
+          <p><Link to="/">Back to Homepage</Link>.</p>
+        </footer>
+      </div>
+    </>
   );
 };
 

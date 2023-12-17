@@ -1,17 +1,14 @@
-import "./navbar.css";
-
 import { Link } from "react-router-dom";
-import { ShoppingCart } from "phosphor-react";
+
+import "./navbar.css";
+import logo from '../images/expenseTrackingLogo.png';
 
 const Navbar = (props) => {
   return (
     <div className="navbar">
       <div className="links">
         <div>
-          <Link to="/">Shop</Link>
-          <Link to="/cart">
-            <ShoppingCart size={32} />
-          </Link>
+          <Link to="/"><img src={logo} className="app-logo" alt="Logo" /></Link>
         </div>
       </div>
       {
@@ -21,7 +18,7 @@ const Navbar = (props) => {
         </div>
         :
         <div className="login">
-          <Link to="/login">Log in</Link>
+          <Link to="/signin">Log in</Link>
         </div>
       }
     </div>

@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
+import './signup.css';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
 
   const handleSignup = async () => {
-    // Perform the signup logic using your backend API
+    // Perform the signup logic using Axios and your backend API
     try {
-      const response = await fetch('YOUR_API_ENDPOINT/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
+      const response = await axios.post('http://localhost:8080/api/users', {
+        username,
+        password,
+        email
       });
 
-      if (response.ok) {
+      console.log(response.data);
+
+      if (response.status === 201) {
         console.log('Signup successful!');
         // Redirect or perform other actions upon successful signup
       } else {
@@ -28,23 +33,51 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <h2>Signup</h2>
+    <div className="signupWrapper">
+      <h2>Join us</h2>
+      <h5>Create your personal account</h5>
       <form>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <br />
-        <button type="button" onClick={handleSignup}>
-          Signup
-        </button>
+        <div>
+          <label>Username</label><br />
+          <input type="text"
+            name="username"
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+            required />
+        </div>
+
+        <div>
+          <label>Email address</label><br />
+          <input type="email"
+            name="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            required />
+        </div>
+
+        <div>
+          <label>Password</label><br />
+          <input type="password"
+            name="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            required />
+        </div>
+
+        <div>
+          <button id="sub_btn" type="button" onClick={handleSignup}>Register</button>
+        </div>
+
       </form>
+      <footer>
+        <p><Link to="/">Back to Homepage</Link>.</p>
+      </footer>
     </div>
   );
 };

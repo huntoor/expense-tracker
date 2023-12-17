@@ -47,6 +47,15 @@ public class UsersController {
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
+     // Sign In
+     @PostMapping("/signin")
+     public ResponseEntity<Users> signIn(@RequestBody Users user) {
+         Optional<Users> signedInUser = userService.signIn(user.getUsername(), user.getPassword());
+ 
+         return signedInUser.map(u -> new ResponseEntity<>(u, HttpStatus.OK))
+                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.UNAUTHORIZED));
+     }
+
     // Update an existing user by ID
     @PutMapping("/users/{id}")
     public ResponseEntity<Users> updateUser(@PathVariable("id") Integer id, @RequestBody Users user) {
