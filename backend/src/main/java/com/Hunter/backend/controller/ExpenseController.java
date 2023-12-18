@@ -9,8 +9,6 @@ import com.Hunter.backend.model.Expenses;
 import com.Hunter.backend.service.ExpenseRequest;
 import com.Hunter.backend.service.ExpenseService;
 
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 

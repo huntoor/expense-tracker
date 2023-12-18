@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './home.css';
 import Navbar from '../../Context/navbar';
 import validate from '../../Context/validation';
+import UserExpesesList from '../ShowExpenses/UserExpesesList';
 
 
 const Home = () => {
@@ -17,7 +18,8 @@ const Home = () => {
         </div>
 
         <div className="expenses">
-          <div className="expense">
+          <UserExpesesList userID={localStorage.getItem("authToken")}/>
+          {/* <div className="expense">
             <p className='catigoryTitle'><b>title</b></p>
             <div className='expenseDetails'>
               <p><b>Amount:</b> amountSpend</p>
@@ -93,7 +95,7 @@ const Home = () => {
             <button className="editBtn">
               Edit
             </button>
-          </div>
+          </div> */}
 
         </div>
 

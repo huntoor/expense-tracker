@@ -10,7 +10,6 @@ import com.Hunter.backend.repository.ExpenseCategoryRepository;
 import com.Hunter.backend.repository.ExpenseRepository;
 import com.Hunter.backend.repository.UsersRepository;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

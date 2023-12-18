@@ -13,7 +13,6 @@ const ExpenseCards = () => {
 
   return (
     <>
-
       <div className="expense">
         <p className='catigoryTitle'><b>title</b></p>
         <div className='expenseDetails'>
@@ -24,27 +23,6 @@ const ExpenseCards = () => {
         <button className="editBtn">
           Edit
         </button>
-      </div>
-
-      <div className="products">
-        <div className="product">
-          <div className="description">
-            <p><b>title</b></p>
-            <p>$price</p>
-            <button className="addToCartBttn">
-              Click
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h2>Expense Categories</h2>
-        <ul>
-          {categories.map(category => (
-            <li key={category.categoryId}>{category.categoryName}</li>
-          ))}
-        </ul>
       </div>
     </>
   );
