@@ -36,7 +36,7 @@ const Signin = ({ onSignin }) => {
     <>
       <div className="loginWrapper">
         <h2>Sign in with us</h2>
-        <form>
+        <form onSubmit={handleSignin}>
           <div>
             <label>Username</label>
             <br />
@@ -56,7 +56,7 @@ const Signin = ({ onSignin }) => {
           </div>
 
           <div>
-            <button id="sub_btn" type="button" onClick={handleSignin}>Login</button>
+            <button id="sub_btn" type="submit" >Login</button>
           </div>
 
         </form>

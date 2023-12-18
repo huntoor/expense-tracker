@@ -5,6 +5,7 @@ import './App.css'
 import Signin from './pages/SignIn/Signin';
 import Signup from './pages/SignUp/Signup';
 import Home from './pages/Home/Home';
+import validate from './Context/validation';
 
 const App = () => {
 
@@ -13,19 +14,14 @@ const App = () => {
       <BrowserRouter>
         {/* <Navbar /> */}
         <Routes>
+          {
+            validate() ?
+              <Route path='/' element={<Home />} />
+            : <Route path='/' element={<Signin />} />
+          }
           <Route path='/' element={<Home />} />
           <Route path='/signin' element={<Signin />} />
           <Route path='/signup' element={<Signup />} />
-          {/* <Route
-            exact
-            path="/"
-            render={() => (isLoggedIn ? <Home onLogout={handleLogout} /> : <Navigate to="/login" />)}
-          />
-          <Route path="/signup" component={Signup} />
-          <Route
-            path="/login"
-            render={() => (isLoggedIn ? <Navigate to="/" /> : <Signin onLogin={handleLogin} />)}
-          /> */}
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ExpenseCategoryComponent = () => {
+const ExpenseCards = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -13,6 +13,19 @@ const ExpenseCategoryComponent = () => {
 
   return (
     <>
+
+      <div className="expense">
+        <p className='catigoryTitle'><b>title</b></p>
+        <div className='expenseDetails'>
+          <p><b>Amount:</b> amountSpend</p>
+          <p><b>Date:</b> 31-4-2023</p>
+          <p><b>Description:</b> Lorem ipsum dolor sit. lorem</p>
+        </div>
+        <button className="editBtn">
+          Edit
+        </button>
+      </div>
+
       <div className="products">
         <div className="product">
           <div className="description">
@@ -24,7 +37,7 @@ const ExpenseCategoryComponent = () => {
           </div>
         </div>
       </div>
-      
+
       <div>
         <h2>Expense Categories</h2>
         <ul>
@@ -37,4 +50,4 @@ const ExpenseCategoryComponent = () => {
   );
 };
 
-export default ExpenseCategoryComponent;
+export default ExpenseCards;

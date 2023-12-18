@@ -36,7 +36,7 @@ const Signup = () => {
     <div className="signupWrapper">
       <h2>Join us</h2>
       <h5>Create your personal account</h5>
-      <form>
+      <form onSubmit={handleSignup}>
         <div>
           <label>Username</label><br />
           <input type="text"
@@ -71,7 +71,7 @@ const Signup = () => {
         </div>
 
         <div>
-          <button id="sub_btn" type="button" onClick={handleSignup}>Register</button>
+          <button id="sub_btn" type="submit">Register</button>
         </div>
 
       </form>

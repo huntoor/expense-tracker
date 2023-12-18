@@ -1,0 +1,76 @@
+.expenseTitle {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .expenses {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+  }
+  
+  .expense {
+    border-radius: 15px;
+    width: 300px;
+    margin: 100px 50px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #2D9596;
+  }
+  
+  .expense .catigoryTitle {
+    text-transform: uppercase;
+    color: #2D9596;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  .expense .expenseDetails  > *{
+    margin-bottom: 10px;
+  }
+  
+  .editBtn {
+    background-color: transparent;
+    border: 2px solid #2D9596;
+    min-width: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 15px;
+    transition: 0.4s;
+  }
+  
+  .editBtn:hover {
+    background-color: #2D9596;
+    color: white;
+    cursor: pointer;
+  }
+
+  .interaction {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .interaction a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 100px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: #2D9596;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+  .interaction a:hover {
+    background-color: #2d9496a7;
+  }

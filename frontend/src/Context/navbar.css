@@ -1,29 +1,64 @@
 .navbar {
-    width: 100%;
-    height: 80px;
-    background-color: #C5FFF8;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .links {
-    display: flex;
-    align-items: center;
-    margin-right: 30px;
-  }
-  
-  .links a,
-  .login a,
-  .username h1 {
-    text-decoration: none;
-    color: #265073;
-    padding: 15px;
-    font-size: 30px;
-    font-weight: bolder;
-  }
+  width: 100%;
+  height: 80px;
+  background-color: #cae1df;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .app-logo {
-    width: 15%;
-  }
+.links {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.links a,
+.login a,
+.username h1 {
+  text-decoration: none;
+  color: #265073;
+  padding: 15px;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.app-logo {
+  width: 15%;
+}
+
+.user-dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-menu button {
+  background: none;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  background-color: #2D9596;
+  padding: 10px 40px;
+  font-size: 20px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.dropdown-menu button:hover {
+  background-color: rgba(255, 0, 0, 0.685);
+}
