@@ -33,6 +33,11 @@ public class ExpenseService {
         return expenseRepository.findById(id);
     }
 
+    // Get Expenses by User ID
+    public List<Expenses> getExpensesByUserId(Integer userId) {
+        return expenseRepository.findByUserId(userId);
+    }
+
     // Create a new expense
     public Expenses createExpense(Expenses expense) {
         return expenseRepository.save(expense);

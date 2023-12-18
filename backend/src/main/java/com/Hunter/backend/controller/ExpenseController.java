@@ -40,6 +40,18 @@ public class ExpenseController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    // Get Expenses by User ID
+    @GetMapping("/userExpense/{userId}")
+    public ResponseEntity<List<Expenses>> getExpensesByUserId(@PathVariable("userId") Integer userId) {
+        List<Expenses> expenses = expenseService.getExpensesByUserId(userId);
+
+        if (expenses.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+
+        return new ResponseEntity<>(expenses, HttpStatus.OK);
+    }
+
     // Create a new expense
     @PostMapping("/expenses")
     public ResponseEntity<Expenses> createExpense(@RequestBody Expenses expense) {
