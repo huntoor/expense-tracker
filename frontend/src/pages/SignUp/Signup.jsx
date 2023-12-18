@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import './signup.css';
 
@@ -8,6 +8,8 @@ const Signup = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSignup = async () => {
     // Perform the signup logic using Axios and your backend API
@@ -22,7 +24,7 @@ const Signup = () => {
 
       if (response.status === 201) {
         console.log('Signup successful!');
-        // Redirect or perform other actions upon successful signup
+        navigate("/"); // Redirect user to Home Page
       } else {
         console.error('Signup failed');
         // Handle error cases

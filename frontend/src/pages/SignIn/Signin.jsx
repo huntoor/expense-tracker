@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import './signin.css';
 
 
-const Signin = ({ onSignin }) => {
+const Signin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+  
   const handleSignin = async () => {
     try {
       const response = await axios.post('http://localhost:8080/api/signin', {
@@ -22,7 +24,9 @@ const Signin = ({ onSignin }) => {
         console.log(data);
         localStorage.setItem('authToken', data.id);
         localStorage.setItem('username', data.username);
-        // onSignin(); // Notify the parent component (App.js) about the successful signin
+
+        navigate("/");
+
       } else {
         console.error('Signin failed');
         // Handle error cases

@@ -6,8 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.Hunter.backend.model.Expenses;
+import com.Hunter.backend.service.ExpenseRequest;
 import com.Hunter.backend.service.ExpenseService;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,6 +59,16 @@ public class ExpenseController {
     @PostMapping("/expenses")
     public ResponseEntity<Expenses> createExpense(@RequestBody Expenses expense) {
         Expenses createdExpense = expenseService.createExpense(expense);
+        return new ResponseEntity<>(createdExpense, HttpStatus.CREATED);
+    }
+
+    // Create a new expense using userId and categoryId
+    @PostMapping("/expensesWithUserAndCategory")
+    public ResponseEntity<Expenses> createExpenseWithUserIdAndCategoryId(
+            @RequestBody ExpenseRequest request) {
+        Expenses createdExpense = expenseService.createExpenseWithUserIdAndCategoryId(
+                request.getAmount(), request.getDate(), request.getDescription(), request.getUserId(),
+                request.getCategoryId());
         return new ResponseEntity<>(createdExpense, HttpStatus.CREATED);
     }
 

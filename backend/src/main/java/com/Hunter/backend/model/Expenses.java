@@ -18,7 +18,7 @@ public class Expenses {
     private Users user;
 
     @Column(name = "amount", nullable = false)
-    private BigDecimal amount;
+    private Integer amount;
 
     @Column(name = "date", nullable = false)
     private Date date;
@@ -33,7 +33,7 @@ public class Expenses {
     public Expenses() {
     }
 
-    public Expenses(Users user, BigDecimal amount, Date date, ExpenseCategory category, String description) {
+    public Expenses(Users user, Integer amount, Date date, ExpenseCategory category, String description) {
         this.user = user;
         this.amount = amount;
         this.date = date;
@@ -53,11 +53,11 @@ public class Expenses {
         this.user = user;
     }
 
-    public BigDecimal getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(Integer amount) {
         this.amount = amount;
     }
 
