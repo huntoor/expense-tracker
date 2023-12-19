@@ -90,3 +90,9 @@
   .interaction a:hover {
     background-color: #2d9496a7;
   }
+
+  .noExpense {
+    font-size: 2rem;
+    text-align: center;
+    margin: 20px 0;
+  }

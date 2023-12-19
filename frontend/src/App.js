@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import './App.css'
 import Signin from './pages/SignIn/Signin';
@@ -14,7 +14,7 @@ const App = () => {
     <div className='App'>
       <BrowserRouter>
         <Routes>
-          {
+          {/* {
             validate() ?
               <Route path='/' element={<Home />} />
             : <Route path='/' element={<Signin />} />
@@ -22,8 +22,20 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/signin' element={<Signin />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/addExpense' element={<AddExpense user_id={localStorage.getItem('authToken')} />} />
-          {/* {validate() ? (
+          <Route path='/addExpense' element={<AddExpense user_id={localStorage.getItem('authToken')} />} /> */}
+          {/* {
+            validate() ?
+              <>
+                <Route path='/' element={<Home />} />
+                <Route path='/addExpense' element={<AddExpense user_id={localStorage.getItem('authToken')} />} />              </>
+              :
+              <>
+                <Route path='/signin' element={<Signin />} />
+                <Route path='/signup' element={<Signup />} />
+              </>
+          } */}
+          {
+          validate() ? (
             <>
               <Route path="/" element={<Home />} />
               <Route path="/addExpense" element={<AddExpense user_id={localStorage.getItem('authToken')} />} />
@@ -43,7 +55,7 @@ const App = () => {
           )}
 
           <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} /> */}
+          <Route path="/signup" element={<Signup />} />
 
         </Routes>
       </BrowserRouter>

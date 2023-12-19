@@ -37,10 +37,6 @@ const UserExpesesList = ({ userID }) => {
       .catch(error => console.error(error));
   }, [userID]);
 
-  // Render a loading message or indicator while data is being fetched
-  if (loading) {
-    return <p>Loading...</p>;
-  }
 
   const deleteExpense = (expenseId) => {
     // Send a DELETE request to the backend to delete the expense
@@ -52,6 +48,20 @@ const UserExpesesList = ({ userID }) => {
       .catch(error => console.error(error));
   };
 
+  // Render a loading message or indicator while data is being fetched
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  // Check if expenses array is empty
+  if (expenses.length === 0) {
+    return (
+      <>
+        <div></div>
+        <div className='noExpense'><p>No expenses to display</p></div>
+      </>
+    );
+  }
   return (
     <>
       {console.log(expenses)}
@@ -77,7 +87,7 @@ const UserExpesesList = ({ userID }) => {
                 <button className="editBtn btn">
                   Edit
                 </button>
-                <button className="deleteBtn btn"  onClick={() => deleteExpense(expense.expenseId)}>
+                <button className="deleteBtn btn" onClick={() => deleteExpense(expense.expenseId)}>
                   Delete
                 </button>
               </div>

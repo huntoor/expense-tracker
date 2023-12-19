@@ -11,8 +11,11 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
-  const handleSignup = async () => {
-    // Perform the signup logic using Axios and your backend API
+  const handleSignup = async (event) => {
+
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Perform the signup logic using Axios and backend API
     try {
       const response = await axios.post('http://localhost:8080/api/users', {
         username,

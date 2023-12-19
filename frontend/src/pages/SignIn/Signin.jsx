@@ -11,7 +11,9 @@ const Signin = () => {
 
   const navigate = useNavigate();
   
-  const handleSignin = async () => {
+  const handleSignin = async (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+
     try {
       const response = await axios.post('http://localhost:8080/api/signin', {
         username,
@@ -26,6 +28,7 @@ const Signin = () => {
         localStorage.setItem('username', data.username);
 
         navigate("/");
+        window.location.reload(false);
 
       } else {
         console.error('Signin failed');
